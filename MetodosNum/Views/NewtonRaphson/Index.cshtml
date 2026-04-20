@@ -1,0 +1,88 @@
+﻿<style>
+    body {
+        font-family: Arial;
+        padding: 20px;
+        background: #f0f2f5;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        color: #2196F3;
+    }
+
+    .card {
+        background: white;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+        background: #2196F3;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+</style>
+
+<h1>Método de Newton-Raphson</h1>
+
+<div class="card">
+    <h2>📘 Teoría</h2>
+    <p>
+        El método de Newton-Raphson es un método numérico que permite encontrar raíces
+        de una función utilizando derivadas.
+    </p>
+
+    <p>
+        Se basa en aproximar la función mediante la recta tangente:
+    </p>
+
+    <p><strong>xₙ₊₁ = xₙ - f(xₙ)/f'(xₙ)</strong></p>
+</div>
+
+<div class="card">
+    <h2>📊 Algoritmo</h2>
+    <ol>
+        <li>Elegir un valor inicial x₀</li>
+        <li>Calcular f(x₀) y f'(x₀)</li>
+        <li>Aplicar la fórmula</li>
+        <li>Evaluar el error</li>
+        <li>Repetir hasta tolerancia</li>
+    </ol>
+</div>
+
+<div class="card">
+    <h2>📈 Ejemplo</h2>
+
+    <p><strong>Resolver:</strong> e<sup>-x</sup> - x = 0</p>
+
+    <p>
+        x₀ = 0.5 <br />
+        x₁ ≈ 0.5663 <br />
+        x₂ ≈ 0.5671
+    </p>
+
+    <p><strong>Resultado aproximado:</strong> x ≈ 0.567</p>
+</div>
+
+<div class="card">
+    <h2>💻 Calculadora</h2>
+
+    <form method="post">
+        <input name="x0" placeholder="Valor inicial x0" />
+        <input name="tol" placeholder="Tolerancia (ej: 0.001)" />
+        <br /><br />
+        <button type="submit" class="btn">Calcular</button>
+    </form>
+
+    @if (ViewBag.Resultado != null)
+    {
+        <h3>@ViewBag.Resultado</h3>
+    }
+</div>

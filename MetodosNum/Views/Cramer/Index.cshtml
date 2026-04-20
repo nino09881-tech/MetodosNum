@@ -1,0 +1,148 @@
+﻿<style>
+    body {
+        font-family: Arial;
+        padding: 20px;
+        background-color: #f0f2f5;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    h2 {
+        color: #795548;
+    }
+
+    .card {
+        background: white;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+        background: #795548;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<h1>Método de Cramer</h1>
+
+<div class="card">
+    <h2>📘 Teoría</h2>
+    <p>
+        El método de Cramer es una técnica para resolver sistemas de ecuaciones lineales
+        utilizando determinantes. Se aplica cuando el número de ecuaciones es igual al número
+        de incógnitas.
+    </p>
+
+    <p>
+        Dado un sistema Ax = B, la solución se obtiene como:
+    </p>
+
+    <p><strong>xᵢ = det(Aᵢ) / det(A)</strong></p>
+
+    <p>
+        Donde A es la matriz de coeficientes y Aᵢ es la matriz que resulta de reemplazar
+        la columna i por el vector B.
+    </p>
+
+    <p><strong>Condición:</strong> det(A) ≠ 0</p>
+</div>
+
+<div class="card">
+    <h2>📊 Algoritmo</h2>
+    <ol>
+        <li>Formar la matriz A y el vector B</li>
+        <li>Calcular el determinante de A</li>
+        <li>Reemplazar cada columna por B para formar A₁, A₂...</li>
+        <li>Calcular los determinantes de cada matriz</li>
+        <li>Aplicar la fórmula: x = det(A₁)/det(A), y = det(A₂)/det(A)</li>
+    </ol>
+</div>
+
+<div class="card">
+    <h2>📈 Ejemplo</h2>
+
+    <p><strong>Sistema:</strong></p>
+    <p>
+        2x + 3y = 5 <br />
+        4x + y = 6
+    </p>
+
+    <p><strong>Matriz A:</strong></p>
+    <p>
+        | 2  3 | <br />
+        | 4  1 |
+    </p>
+
+    <p><strong>Determinante:</strong></p>
+    <p>
+        det(A) = (2)(1) - (3)(4) = 2 - 12 = -10
+    </p>
+
+    <p><strong>Matriz Ax:</strong></p>
+    <p>
+        | 5  3 | <br />
+        | 6  1 |
+    </p>
+
+    <p>
+        det(Ax) = (5)(1) - (3)(6) = 5 - 18 = -13
+    </p>
+
+    <p><strong>Matriz Ay:</strong></p>
+    <p>
+        | 2  5 | <br />
+        | 4  6 |
+    </p>
+
+    <p>
+        det(Ay) = (2)(6) - (5)(4) = 12 - 20 = -8
+    </p>
+
+    <p>
+        x = -13 / -10 = 1.3 <br />
+        y = -8 / -10 = 0.8
+    </p>
+
+    <p><strong>Resultado:</strong> x = 1.3 , y = 0.8</p>
+</div>
+
+<div class="card">
+    <h2>💻 Calculadora</h2>
+
+    <form method="post">
+
+        <p>Matriz A</p>
+
+        <input name="a11" placeholder="a11" />
+        <input name="a12" placeholder="a12" />
+        <br />
+
+        <input name="a21" placeholder="a21" />
+        <input name="a22" placeholder="a22" />
+
+        <br /><br />
+
+        <p>Vector B</p>
+
+        <input name="b1" placeholder="b1" />
+        <input name="b2" placeholder="b2" />
+
+        <br /><br />
+
+        <button type="submit" class="btn">Resolver</button>
+    </form>
+
+    @if (ViewBag.Resultado != null)
+    {
+        <h3>@ViewBag.Resultado</h3>
+    }
+</div>

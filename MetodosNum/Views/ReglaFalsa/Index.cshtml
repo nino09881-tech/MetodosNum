@@ -1,0 +1,98 @@
+﻿<style>
+    body {
+        font-family: Arial;
+        padding: 20px;
+        background: #f0f2f5;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        color: #9C27B0;
+    }
+
+    .card {
+        background: white;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+        background: #9C27B0;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+</style>
+
+<h1>Método de Regla Falsa</h1>
+
+<div class="card">
+    <h2>📘 Teoría</h2>
+    <p>
+        El método de Regla Falsa (o falsa posición) es un método numérico que permite
+        encontrar raíces de una función utilizando un intervalo [a,b] donde existe
+        cambio de signo.
+    </p>
+
+    <p>
+        A diferencia de la bisección, este método usa una recta para aproximar la raíz:
+    </p>
+
+    <p><strong>c = b - f(b)(b - a) / (f(b) - f(a))</strong></p>
+</div>
+
+<div class="card">
+    <h2>📊 Algoritmo</h2>
+    <ol>
+        <li>Elegir a y b tal que f(a)·f(b) &lt; 0</li>
+        <li>Calcular c con la fórmula</li>
+        <li>Evaluar f(c)</li>
+        <li>
+            Si f(a)·f(c) &lt; 0 → b = c <br />
+            Si f(a)·f(c) &gt; 0 → a = c
+        </li>
+        <li>Repetir hasta tolerancia</li>
+    </ol>
+</div>
+
+<div class="card">
+    <h2>📈 Ejemplo</h2>
+
+    <p><strong>Resolver:</strong> e<sup>-x</sup> - x = 0 en [0,1]</p>
+
+    <p>
+        f(0) = 1 <br />
+        f(1) = -0.632
+    </p>
+
+    <p>
+        Iteración 1: c ≈ 0.6127 <br />
+        Iteración 2: c ≈ 0.5722 <br />
+        Iteración 3: c ≈ 0.5677
+    </p>
+
+    <p><strong>Resultado aproximado:</strong> x ≈ 0.567</p>
+</div>
+
+<div class="card">
+    <h2>💻 Calculadora</h2>
+
+    <form method="post">
+        <input name="a" placeholder="Valor A" />
+        <input name="b" placeholder="Valor B" />
+        <input name="tol" placeholder="Tolerancia (ej: 0.001)" />
+        <br /><br />
+        <button type="submit" class="btn">Calcular</button>
+    </form>
+
+    @if (ViewBag.Resultado != null)
+    {
+        <h3>@ViewBag.Resultado</h3>
+    }
+</div>

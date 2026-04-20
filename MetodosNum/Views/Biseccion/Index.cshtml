@@ -1,0 +1,164 @@
+﻿<style>
+    <style >
+    .form input {
+        padding: 10px;
+        margin: 5px;
+        width: 150px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .btn {
+        background: linear-gradient(45deg, #4CAF50, #2E7D32);
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: #1B5E20;
+        }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    th {
+        background: #2196F3;
+        color: white;
+        padding: 10px;
+    }
+
+    td {
+        text-align: center;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background: #f5f5f5;
+    }
+</style>
+</style>
+
+<h1>Método de Bisección</h1>
+
+<div class="card">
+    <h2>📘 Teoría</h2>
+    <p>
+        Los métodos que utilizan intervalos se emplean para encontrar raíces de una función.
+        Se basan en suposiciones que encierran la raíz dentro de un intervalo y reducen
+        sistemáticamente su tamaño.
+    </p>
+
+    <p>
+        El método de bisección consiste en dividir el intervalo en dos partes iguales
+        y seleccionar el subintervalo donde existe un cambio de signo.
+    </p>
+
+    <p><strong>Condición:</strong> f(xl) · f(xu) &lt; 0</p>
+</div>
+
+<div class="card">
+    <h2>📊 Algoritmo</h2>
+    <ol>
+        <li>Elegir xl y xu tal que f(xl)·f(xu) &lt; 0</li>
+        <li>Calcular xr = (xl + xu) / 2</li>
+        <li>Evaluar f(xr)</li>
+        <li>
+            Si f(xl)·f(xr) &lt; 0 → xu = xr <br />
+            Si f(xl)·f(xr) &gt; 0 → xl = xr <br />
+            Si f(xr) = 0 → xr es la raíz exacta
+        </li>
+        <li>Repetir hasta cumplir tolerancia</li>
+    </ol>
+</div>
+
+<div class="card">
+    <h2>📈 Ejemplo</h2>
+
+    <p><strong>Resolver:</strong> e<sup>-x</sup> - x = 0 en [0,1]</p>
+
+    <p>
+        f(0) = 1 <br />
+        f(1) = -0.632
+    </p>
+
+    <p><strong>1ª Iteración:</strong></p>
+    <p>
+        xr = (0 + 1)/2 = 0.5 <br />
+        f(0.5) = 0.1065
+    </p>
+
+    <p><strong>2ª Iteración:</strong></p>
+    <p>
+        xr = (0.5 + 1)/2 = 0.75 <br />
+        f(0.75) ≈ -0.2776
+    </p>
+
+    <p><strong>3ª Iteración:</strong></p>
+    <p>
+        xr = (0.5 + 0.75)/2 = 0.625 <br />
+        f(0.625) ≈ -0.0897
+    </p>
+
+    <p>
+        Resultado aproximado: <strong>x ≈ 0.56</strong>
+    </p>
+</div>
+
+<div class="card">
+    <h2>💻 Calculadora</h2>
+
+    <form method="post" class="form">
+        <input name="a" placeholder="Valor inicial (xl)" required />
+        <input name="b" placeholder="Valor final (xu)" required />
+
+        <button type="submit" class="btn">Calcular</button>
+    </form>
+
+    @if (ViewBag.Resultado != null)
+    {
+        <h3>✅ Raíz aproximada: @ViewBag.Resultado</h3>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <h3 style="color:red;">@ViewBag.Error</h3>
+    }
+</div>
+@if (ViewBag.Tabla != null)
+{
+    <div class="card">
+        <h2>📊 Iteraciones</h2>
+
+        <table>
+            <tr>
+                <th>Iter</th>
+                <th>Xl</th>
+                <th>Xu</th>
+                <th>Xr</th>
+                <th>f(Xr)</th>
+                <th>Error %</th>
+            </tr>
+
+            @foreach (var item in ViewBag.Tabla)
+            {
+                <tr>
+                    <td>@item.Iter</td>
+                    <td>@item.Xl</td>
+                    <td>@item.Xu</td>
+                    <td>@item.Xr</td>
+                    <td>@item.Fx</td>
+                    <td>@item.Error</td>
+                </tr>
+            }
+        </table>
+    </div>
+}

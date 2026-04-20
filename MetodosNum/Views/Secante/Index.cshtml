@@ -1,0 +1,94 @@
+﻿<style>
+    body {
+        font-family: Arial;
+        padding: 20px;
+        background: #f0f2f5;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        color: #FF9800;
+    }
+
+    .card {
+        background: white;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+        background: #FF9800;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+</style>
+
+<h1>Método de la Secante</h1>
+
+<div class="card">
+    <h2>📘 Teoría</h2>
+    <p>
+        El método de la secante es un método numérico para encontrar raíces de una función.
+        A diferencia de Newton-Raphson, no requiere derivadas.
+    </p>
+
+    <p>
+        Se basa en aproximar la función con una recta que pasa por dos puntos:
+    </p>
+
+    <p><strong>x₂ = x₁ - f(x₁)(x₁ - x₀) / (f(x₁) - f(x₀))</strong></p>
+</div>
+
+<div class="card">
+    <h2>📊 Algoritmo</h2>
+    <ol>
+        <li>Elegir valores iniciales x₀ y x₁</li>
+        <li>Calcular x₂ con la fórmula</li>
+        <li>Evaluar error |x₂ - x₁|</li>
+        <li>Actualizar valores</li>
+        <li>Repetir hasta tolerancia</li>
+    </ol>
+</div>
+
+<div class="card">
+    <h2>📈 Ejemplo</h2>
+
+    <p><strong>Resolver:</strong> e<sup>-x</sup> - x = 0</p>
+
+    <p>
+        x₀ = 0 <br />
+        x₁ = 1
+    </p>
+
+    <p>
+        Iteración 1: x₂ ≈ 0.6127 <br />
+        Iteración 2: x₂ ≈ 0.5638 <br />
+        Iteración 3: x₂ ≈ 0.5671
+    </p>
+
+    <p><strong>Resultado aproximado:</strong> x ≈ 0.567</p>
+</div>
+
+<div class="card">
+    <h2>💻 Calculadora</h2>
+
+    <form method="post">
+        <input name="x0" placeholder="Valor inicial x0" />
+        <input name="x1" placeholder="Valor inicial x1" />
+        <input name="tol" placeholder="Tolerancia (ej: 0.001)" />
+        <br /><br />
+        <button type="submit" class="btn">Calcular</button>
+    </form>
+
+    @if (ViewBag.Resultado != null)
+    {
+        <h3>@ViewBag.Resultado</h3>
+    }
+</div>

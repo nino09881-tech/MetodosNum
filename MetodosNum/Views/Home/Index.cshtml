@@ -1,0 +1,120 @@
+﻿<style>
+    body {
+        font-family: Arial;
+        margin: 0;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+    }
+
+    .container {
+        text-align: center;
+        padding: 40px;
+    }
+
+    h1 {
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 30px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .card {
+        background: white;
+        color: black;
+        padding: 20px;
+        border-radius: 15px;
+        text-decoration: none;
+        box-shadow: 0px 6px 12px rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+        }
+
+    .title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .desc {
+        font-size: 14px;
+        color: #555;
+    }
+</style>
+
+<div class="container">
+
+    <h1>📊 Métodos Numéricos</h1>
+    <p>Selecciona un método para ver teoría, ejemplo y resolver ejercicios</p>
+
+    <div class="grid">
+
+        <a href="/Biseccion" class="card">
+            <div class="title">Bisección</div>
+            <div class="desc">Método por intervalos</div>
+        </a>
+
+        <a href="/ReglaFalsa" class="card">
+            <div class="title">Regla Falsa</div>
+            <div class="desc">Aproximación con recta</div>
+        </a>
+
+        <a href="/PuntoFijo" class="card">
+            <div class="title">Punto Fijo</div>
+            <div class="desc">Iteraciones sucesivas</div>
+        </a>
+
+        <a href="/Secante" class="card">
+            <div class="title">Secante</div>
+            <div class="desc">Sin derivadas</div>
+        </a>
+
+        <a href="/NewtonRaphson" class="card">
+            <div class="title">Newton-Raphson</div>
+            <div class="desc">Usa derivadas</div>
+        </a>
+
+        <a href="/Taylor" class="card">
+            <div class="title">Serie de Taylor</div>
+            <div class="desc">Aproximación de funciones</div>
+        </a>
+
+        <a href="/GaussJordan" class="card">
+            <div class="title">Gauss-Jordan</div>
+            <div class="desc">Matrices reducidas</div>
+        </a>
+
+        <a href="/EliminacionGaussiana" class="card">
+            <div class="title">Eliminación Gaussiana</div>
+            <div class="desc">Triangular + sustitución</div>
+        </a>
+
+        <a href="/Cramer" class="card">
+            <div class="title">Cramer</div>
+            <div class="desc">Determinantes</div>
+        </a>
+
+        <a href="/Inversa" class="card">
+            <div class="title">Matriz Inversa</div>
+            <div class="desc">A⁻¹ · B</div>
+        </a>
+
+        <a href="/Montante" class="card">
+            <div class="title">Montante</div>
+            <div class="desc">Método exacto</div>
+        </a>
+
+    </div>
+</div>

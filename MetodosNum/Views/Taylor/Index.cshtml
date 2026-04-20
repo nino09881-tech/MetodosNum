@@ -1,0 +1,89 @@
+﻿<style>
+    body {
+        font-family: Arial;
+        padding: 20px;
+        background: #f0f2f5;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        color: #673AB7;
+    }
+
+    .card {
+        background: white;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+        background: #673AB7;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+</style>
+
+<h1>Serie de Taylor</h1>
+
+<div class="card">
+    <h2>📘 Teoría</h2>
+    <p>
+        La serie de Taylor permite aproximar una función mediante una suma infinita
+        de términos calculados a partir de sus derivadas en un punto.
+    </p>
+
+    <p><strong>f(x) ≈ Σ (f⁽ⁿ⁾(a)/n!) (x - a)ⁿ</strong></p>
+
+    <p>
+        En este caso usamos la expansión de eˣ:
+    </p>
+
+    <p><strong>eˣ = 1 + x + x²/2! + x³/3! + ...</strong></p>
+</div>
+
+<div class="card">
+    <h2>📊 Algoritmo</h2>
+    <ol>
+        <li>Elegir valor de x</li>
+        <li>Elegir número de términos n</li>
+        <li>Calcular cada término</li>
+        <li>Sumarlos</li>
+    </ol>
+</div>
+
+<div class="card">
+    <h2>📈 Ejemplo</h2>
+
+    <p><strong>Aproximar e¹ con 3 términos</strong></p>
+
+    <p>
+        e¹ ≈ 1 + 1 + 1/2! + 1/3! <br />
+        e¹ ≈ 1 + 1 + 0.5 + 0.1666 <br />
+        e¹ ≈ 2.6666
+    </p>
+
+    <p><strong>Valor real:</strong> 2.718</p>
+</div>
+
+<div class="card">
+    <h2>💻 Calculadora</h2>
+
+    <form method="post">
+        <input name="x" placeholder="Valor de x" />
+        <input name="n" placeholder="Número de términos" />
+        <br /><br />
+        <button type="submit" class="btn">Calcular</button>
+    </form>
+
+    @if (ViewBag.Resultado != null)
+    {
+        <h3>@ViewBag.Resultado</h3>
+    }
+</div>
